@@ -30,7 +30,14 @@ const exampleMovies = require("./movies");
       "James and the Giant Peach",
     ];
  */
-function getAllMovieTitles() {}
+function getAllMovieTitles(movies) {
+  if (!movies.length) {
+    throw "No movies here!";
+  }
+  return movies.map((movie) => {
+    return movie.title;
+  });
+}
 
 /**
  * checkIfAnyMovieHasRating()
@@ -50,7 +57,29 @@ function getAllMovieTitles() {}
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-function checkIfAnyMovieHasRating() {}
+//returns a boolean what returns a boolean?? representing weather or not a movie has been given a specific rating
+function checkIfAnyMovieHasRating(movies) {
+  if (movies.length === 0) {
+    throw "No movies to display ratings!";
+  }
+  return movies.some((movie) => {
+    if (movie.rated === "G") {
+      return true;
+    }
+    if (movie.rated !== "G") {
+      return false;
+    }
+  });
+}
+//   if(movies.length === 0){
+//     throw "No movies"
+//   }
+//   return movies.some((movie) => {
+//     if(movie.rated === "G"){
+//       return true
+//     }
+//     return false
+//   }
 
 /**
  * findById()
