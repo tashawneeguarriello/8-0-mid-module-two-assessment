@@ -3,6 +3,7 @@
 
   Keep in mind that your functions must still have and use a parameter for accepting all movies.
 */
+const movies = require("./movies");
 const exampleMovies = require("./movies");
 // Do not change the line above.
 
@@ -57,7 +58,7 @@ function getAllMovieTitles(movies) {
  *  checkIfAnyMovieHasRating(movies, "R");
  *  //> false
  */
-//returns a boolean what returns a boolean?? representing weather or not a movie has been given a specific rating
+
 function checkIfAnyMovieHasRating(movies) {
   if (movies.length === 0) {
     throw "No movies to display ratings!";
@@ -66,20 +67,8 @@ function checkIfAnyMovieHasRating(movies) {
     if (movie.rated === "G") {
       return true;
     }
-    if (movie.rated !== "G") {
-      return false;
-    }
   });
 }
-//   if(movies.length === 0){
-//     throw "No movies"
-//   }
-//   return movies.some((movie) => {
-//     if(movie.rated === "G"){
-//       return true
-//     }
-//     return false
-//   }
 
 /**
  * findById()
@@ -97,7 +86,17 @@ function checkIfAnyMovieHasRating(movies) {
       // Toy Story 4
     };
  */
-function findById() {}
+
+function findById(movies, id) {
+  if (!movies.length) {
+    throw "No movies!";
+  }
+  // let result = null;
+  return movies.find((movie) => movie.imdbID === id);
+  // }
+  // if (movie.imdbID !== id) {
+  //   return false;
+}
 
 /**
  * filterByGenre()
@@ -121,7 +120,15 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  // movies.filter((movie) => movie.genre === "genre");
+
+  if (!movies.length) {
+    throw "Error";
+  }
+}
+// const genre = movies.filter((movie) => movie.genre === genre);
+// return genre;
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
